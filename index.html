@@ -45,7 +45,7 @@
         const lng = urlParams.get('lon') || -1;
         const zoom = urlParams.get('zoom') || 14;
 
-       mapboxgl.accessToken = 'pk.eyJ1Ijoid29uZG9yIiwiYSI6ImNsZDI4NjR5bDA2NXczeHAzODlrNTdhdHkifQ.vFjRLcEYnFlGNkIIGwqPuw';
+        mapboxgl.accessToken = 'pk.eyJ1Ijoid29uZG9yIiwiYSI6ImNsZDI4NjR5bDA2NXczeHAzODlrNTdhdHkifQ.vFjRLcEYnFlGNkIIGwqPuw';
         const map = new mapboxgl.Map({
             container: 'map',
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
@@ -129,7 +129,16 @@
             const _lat = map.getCenter().lat.toFixed(4);
             const _zoom = map.getZoom().toFixed(2);
 
-            window.history.replaceState("", "", `/?lat=${_lat}&lon=${_lng}&zoom=${_zoom}`);
+            if ('URLSearchParams' in window) {
+                var searchParams = new URLSearchParams(window.location.search)
+                searchParams.set("lat", _lat);
+                searchParams.set("lon", _lng);
+                searchParams.set("zoom", _zoom);
+                var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+                // history.pushState(null, '', newRelativePathQuery);
+                window.history.replaceState(null, "", newRelativePathQuery);
+            }
+            // window.history.replaceState("", "", `/?lat=${_lat}&lon=${_lng}&zoom=${_zoom}`);
 
         });
 
