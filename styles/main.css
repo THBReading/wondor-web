@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-color: #f7f8fc;
+    color: #10182f;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    overflow: hidden;
+    width: 100%;
+}
+
+.card-header img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card-body p {
+    font-size: 13px;
+    /* margin: 0 0 40px; */
+}
+
+a {
+    color: inherit;
+    /* blue colors for links too */
+    text-decoration: inherit;
+    /* no underline */
+}
