@@ -34,6 +34,11 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+          navigator.serviceWorker.register('pwabuilder-sw.js')
+        }
+      </script>
 
     <div id="map"></div>
 
@@ -45,7 +50,8 @@
         const lng = urlParams.get('lon') || -1;
         const zoom = urlParams.get('zoom') || 14;
 
-        mapboxgl.accessToken = 'pk.eyJ1Ijoid29uZG9yIiwiYSI6ImNsZDI4NjR5bDA2NXczeHAzODlrNTdhdHkifQ.vFjRLcEYnFlGNkIIGwqPuw';
+        mapboxgl.accessToken = 'pk.eyJ1Ijoid29uZG9yIiwiYSI6ImNsNzBmcWZwMzBkb2kzcHM5OHc5djhiZ24ifQ.V2p1_PdmNfncYaTvqs-fFQ';
+        // mapboxgl.accessToken = 'pk.eyJ1Ijoid29uZG9yIiwiYSI6ImNsZDI4NjR5bDA2NXczeHAzODlrNTdhdHkifQ.vFjRLcEYnFlGNkIIGwqPuw';
         const map = new mapboxgl.Map({
             container: 'map',
             // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
